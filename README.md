@@ -27,9 +27,3 @@
 **CRTL + C**
 
 **CRTL + F**
-
-## 源代码
-
-spider_1.py
-
-spider_2.py
