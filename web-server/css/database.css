@@ -1,0 +1,8 @@
+@charset "utf-8";
+#canvas #main #body #introduce {
+	width: 100%;
+	line-height: 30px;
+	text-align: center;
+	height: 30px;
+	padding-top: 30px;
+}

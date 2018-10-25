@@ -1,0 +1,128 @@
+@charset "utf-8";
+a:link {
+	color: #06F;
+	width: 1105px;
+	text-decoration: none;
+}
+a:hover {
+	color: #999;
+}
+#canvas {
+	background-image: url(../images/canvas.png);
+	background-repeat: repeat;
+	height: auto;
+	width: 100%;
+	position: absolute;
+}
+
+#canvas #main {
+	padding: 0px;
+	height: auto;
+	width: 1105px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	-webkit-transition: all 0s 0s;
+	-moz-transition: all 0s 0s;
+	-ms-transition: all 0s 0s;
+	-o-transition: all 0s 0s;
+	transition: all 0s 0s;
+	border: 5px groove #FFF;
+	background-color: #FFF;
+}
+
+
+#canvas #main #head {
+	background-image: url(../images/1a0c4dc1c96058b714258df08deb23fb.jpg);
+	background-repeat: no-repeat;
+	margin: 0px;
+	padding: 0px;
+	height: 200px;
+	width: 100%;
+}
+#canvas #main #head #title {
+	text-align: center;
+	height: auto;
+	width: 100%;
+	font-weight: bold;
+	font-size: 24px;
+}
+#canvas #main #head #link {
+	margin-top: 20px;
+}
+
+#canvas #main #head #link tr td .link_ico {
+	height: 30px;
+	width: 30px;
+	line-height: 30px;
+	display: block;
+	float: left;
+}
+#canvas #main #head #link tr td .link_content {
+	float: left;
+	margin-left: 5px;
+	height: 30px;
+	width: 100px;
+	line-height: 30px;
+}
+
+
+
+#canvas #main #head #link tr td #home {
+	background-image: url(../images/link.png);
+	background-position: -5px -5px;
+}
+#canvas #main #head #link tr td #database {
+	background-image: url(../images/link.png);
+	background-position: -45px -5px;
+}
+#canvas #main #head #link tr td #software {
+	background-image: url(../images/link.png);
+	background-position: -5px -45px;
+}
+#canvas #main #head #link tr td #help {
+	background-image: url(../images/link.png);
+	background-position: -45px -45px;
+}
+
+#canvas #main #body {
+	height: auto;
+	width: 95%;
+}
+
+#canvas #main #tail {
+	height: 200px;
+}
+#canvas #main #body #introduce {
+	height: 100%;
+	width: 95%;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+}
+
+#canvas #main #tail #line_l {
+	float: left;
+	height: 20px;
+	width: 162px;
+}
+#canvas #main #tail #tail_r {
+	float: right;
+	height: 20px;
+	width: 162px;
+}
+#canvas #main #tail #tail_bg {
+	background-image: url(../images/tail_line.png);
+	background-repeat: repeat-x;
+	height: 20px;
+	width: 100%;
+}
+
+#canvas #main #tail #content {
+	padding-top: 20px;
+	height: 160px;
+	font-size: 16px;
+	text-align: center;
+}

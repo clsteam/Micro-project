@@ -1,0 +1,13 @@
+@charset "utf-8";
+.eg {
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: groove;
+	border-right-style: groove;
+	border-bottom-style: groove;
+	border-left-style: groove;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}

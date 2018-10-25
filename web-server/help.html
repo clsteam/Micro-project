@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/home.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>help</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<link href="css/help.css" rel="stylesheet" type="text/css" />
+<!-- InstanceEndEditable -->
+<link href="css/home.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="canvas">
+  <div id="main">
+    <div id="head">
+      <div id="title">
+        <div> 
+          <h4>RASER：An&nbsp;automated&nbsp;tool&nbsp;to&nbsp;analyze&nbsp;RNA-Seq</h4>
+          <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;-designed&nbsp;by&nbsp;bioaurora </h4>
+        </div>
+      </div>
+      <table width="800" align="center" cellpadding="0" cellspacing="0" id="link">
+        <tr>
+          <td><div class="link_ico" id="home"></div>
+            <div class="link_content"><a href="index.html">HOME</a></div>
+            <h2>&nbsp;</h2></td>
+          <td><div class="link_ico" id="database"></div>
+            <div class="link_content"><a href="database.html">DATABASE</a></div>
+          <h2>&nbsp;</h2></td>
+          <td><div class="link_ico" id="software"></div>
+            <div class="link_content"><a href="software.html">SOFTWARE</a></div>
+          <h2>&nbsp;</h2></td>
+          <td><div class="link_ico" id="help"></div>
+            <div class="link_content"><a href="help.html">HELP</a></div>
+          <h2>&nbsp;</h2></td>
+        </tr>
+      </table>
+    </div>
+    <div id="body"><!-- InstanceBeginEditable name="EditRegion" -->
+      <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Integrated system&nbsp;--- RASR！</h2>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; According to the existing data analysis process, tools, and execution code, the integrated pipeline for the whole process of data parallel batch download, inspection, and processing has been completed and is currently uploaded to github (<a href="https://github.com/clsteam/RSAR">https://github.com/clsteam/RSAR</a>). Specifically include environmental testing, data reading, text analysis, organization of sample materials, parameter settings, log output, results verification, and more.</p>
+      <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; What are the functions of RASR?</h2>
+      <ol>
+        <li><strong> Environmental testing</strong><br />
+          <br />
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Java, python, Samtools, Bgzip, and other dependent environments are the premise of the program's operation. Therefore, it is first to check if the environment is perfect. This can be verified by a function check_dependency(), where an environment must be directly reported as an error and a non-essential environment is missing as an output warning. <br />
+         <div class="eg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; E.g:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If Tophat2 is missing, it is directly reported as &quot;External dependency 'tophat2' not installed.&quot;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If formatdb(blast) is missing, then the external dependency 'formatdb ' not installed.fusion search will not be running.</div>
+        </li>
+        <li><strong>Data reading</strong><br />
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The input data forms are various and can be selected according to the user's needs:<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1) Overall input in the form of a folder (suitable for large amount of data and single data format)<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; After the parameter --data, enter the target folder. The folder contains all the original data. The format of the original data can be fastq, fastq.gz, and sra. Both single-end and double-end data can be used.<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2) Input in the form of a file directory (suitable for a small amount of data and a messy data format)<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; After the parameter -data is input to the target file, the file contains the address of the data to be analyzed. The format of the original data may be fastq, fastq.gz, sra, and both single-ended and double-end data may be used.<br />
+          <div class="eg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The reference format is as follows:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #genome annotations bed blacklist haplo_count_blacklist<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #ref PE a1.fastq,a2.fastq<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #ref PE b1.fastq,b2.fastq<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #lab SE a.fastq<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #lab SE b.fastq<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #lab SRA c.sra</div>
+        </li>
+        <li><strong>Text Analysis</strong><br />
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The results of the quality inspection software FastQC need to manually determine whether the quality is qualified, whether the GC content is up to standard, whether there is overexpression and adpter, primer sequence. Automation, on the other hand, can only be judged and artificial links eliminated. First read the fastqc result file data.txt, view the GC content, the overall length and quality of the sequence, etc., then remove the noisy sequence and the detected adapter sequence by the overall ATGC content.<br />
+          Note: Single position (A/T) - (G/C) &gt; 10% sequence removal.<br />
+          <br />
+        </li>
+        <li> <strong>Sample Material Organization</strong><br />
+          <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This process includes the establishment of a parallel pool, the creation of folders, the distribution of analysis results, the generation and deletion of intermediate results, so that the overall analysis can be organized and completed independently.<br />
+        <br />
+        </li>
+        <li><strong> parameter settings</strong><br />
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Each tool has its own parameter settings, the use of conditions and purposes are different, some parameters can be the default, some parameters need to match up and down, some parameters must be provided by the user, so here set a different type of parameters. E.g:<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The --paired-end and parameters in Phaser: need to match up and down according to the situation, and -mapq, -baseq parameters are optional default (we default to 0), but some cases require the user to give specific values, otherwise there is no result Output.<br />
+        <br />
+        </li>
+        <li><strong>Log output<br />
+        </strong>
+          <div class="eg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The output types are divided into 5 categories:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fatal_error() Fatal error, exit directly, stop running, output error<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Print_warning() warning tips<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mes_print() output progress<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Print_debug() prints out specific information in a progress<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Must_print() must output information (eg file format, version information, etc.)</div>
+          <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In order to avoid cross-interference between the original tool output and the pipeline output, all outputs of the tool advance dev/null and replace it with the output of the pipeline. Because the program is parallel, in order to distinguish the progress of each sample analysis, Each step is marked with @mark. <br />
+        <br />
+        </li>
+        <li><strong>Test of results</strong><br />
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Because there is no guarantee that the user will not experience unexpected program interruption during use, the result added in the result output step is generated. Whether the script is complete or not, the next time the program is submitted again, it can be judged whether the step has been executed. Skip if it is already running, otherwise run.<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; And in order to avoid multiple submissions of the same task, the same task name set by the pipeline cannot be repeatedly submitted.        </li>
+      </ol>
+    <!-- InstanceEndEditable --></div>
+    <div id="tail">
+      <div id="line_l"><img src="images/tail-bg-1.png" width="162" height="20" /></div>
+      <div id="tail_r"><img src="images/tail-bg-2.png" width="162" height="20" /></div>
+      <div id="content">
+        <p>Last Updated 04/14/2018 06:47:02</p>
+        <p>Production team:Huazhong Agricultural University bioaurora team</p>
+        <p>RASER GitHub website: <a href="https://github.com/clsteam/RSAR">https://github.com/clsteam/RASER</a></p>
+        <p>WEBMAIL:<a href="bioaurora@webmail.hzau.edu.cn">bioaurora@webmail.hzau.edu.cn</a></p>
+      </div>
+      <div id="tail_bg"></div>
+    </div>
+  </div>
+</div>
+</body>
+<!-- InstanceEnd --></html>
