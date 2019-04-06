@@ -6,18 +6,24 @@
 # @project : RASER1.2
 # 此程序用来爬取HZAU实验室技术安全知识学习与考试系统的测试题，网址：http://211.69.128.172/tltest/pages/StudentMain.aspx
 
-'''
+"""
 改进：
 数据库是每次抽取50题目
 所以爬多次，筛选独立（没有出现过的）的题目
-'''
+运行请补充账号密码！
+"""
 
 from selenium import webdriver
 from time import sleep
 import os
 import os
-#from selenium.webdriver.common.keys import Keys
-#from selenium.webdriver.common.action_chains import ActionChains
+# from selenium.webdriver.common.keys import Keys
+# from selenium.webdriver.common.action_chains import ActionChains
+
+
+account = "***"
+password = "***"
+
 
 def generate_question_database(paper_file):
     question_database = []
@@ -28,6 +34,7 @@ def generate_question_database(paper_file):
                 question_database.append(line.strip("\n").split(".", 1)[1])
                 QN += 1
     return question_database, QN
+
 
 def main():
     # 无界面
@@ -42,8 +49,8 @@ def main():
     log_in_url = 'http://211.69.128.172/tltest'
     download_doc = 'F:/practice/'
     browser.get(log_in_url)
-    user_name = browser.find_element_by_id('txtuserid').send_keys('2014317200501')  # 账号
-    passwd = browser.find_element_by_id('txtpass').send_keys('187519')  # 密码
+    user_name = browser.find_element_by_id('txtuserid').send_keys(account)  # 账号
+    passwd = browser.find_element_by_id('txtpass').send_keys(password)  # 密码
     browser.find_element_by_xpath('//*[@id="Button1"]').click() # 登陆
     prictice_button = browser.find_element_by_xpath('//*[@id="t3"]/a')  # 对于非click的button来说，有js，需要找到位置在执行js
     browser.execute_script("$(arguments[0]).click()", prictice_button)  # 到达训练题目

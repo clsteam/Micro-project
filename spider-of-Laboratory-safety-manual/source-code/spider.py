@@ -3,28 +3,36 @@
 # @Time    : 2018/10/1 11:41
 # @Author  : Yao
 # @Email   : 15927402897@163.com
-# @project : RASER1.2
 
-# 此程序用来爬取HZAU实验室技术安全知识学习与考试系统的测试题，网址：http://211.69.128.172/tltest/pages/StudentMain.aspx
+"""
+此程序用来爬取HZAU实验室技术安全知识学习与考试系统的测试题，网址：http://211.69.128.172/tltest/pages/StudentMain.aspx
+运行请补充账号密码！
+"""
+
 from selenium import webdriver
 from time import sleep
 global browser
-#from selenium.webdriver.common.keys import Keys
-#from selenium.webdriver.common.action_chains import ActionChains
+# from selenium.webdriver.common.keys import Keys
+# from selenium.webdriver.common.action_chains import ActionChains
 
 
 # 无界面
-#opt = webdriver.ChromeOptions()
-#opt.set_headless()
-#browser = webdriver.Chrome(options=opt)
+# opt = webdriver.ChromeOptions()
+# opt.set_headless()
+# browser = webdriver.Chrome(options=opt)
 
 browser = webdriver.Chrome()
+
+
+account = "***"
+password = "***"
+
 
 log_in_url = 'http://211.69.128.172/tltest'
 download_doc = 'F:/practice/'
 browser.get(log_in_url)
-user_name = browser.find_element_by_id('txtuserid').send_keys('2014317200501')  # 账号
-passwd = browser.find_element_by_id('txtpass').send_keys('187519')  # 密码
+user_name = browser.find_element_by_id('txtuserid').send_keys(account)  # 账号
+passwd = browser.find_element_by_id('txtpass').send_keys(password)  # 密码
 browser.find_element_by_xpath('//*[@id="Button1"]').click() # 登陆
 prictice_button = browser.find_element_by_xpath('//*[@id="t3"]/a')  # 对于非click的button来说，有js，需要找到位置在执行js
 browser.execute_script("$(arguments[0]).click()", prictice_button)  # 到达训练题目
