@@ -1,0 +1,10 @@
+score = None
+>seq1
+HEAGAWGHE-E
+>seq2
+---PAW-HEAE
+score = None
+>seq1
+HEAGAWGHE-E
+>seq2
+P---AW-HEAE

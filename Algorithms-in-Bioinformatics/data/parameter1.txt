@@ -1,0 +1,11 @@
+-1; score for initiating a gap
+-1; score for each base insert/delete
+
+; Below is the alphabet
+a c g t
+
+; Below is the similarity matrix for the alphabet
+2 -1 -1 -1
+-1 2 -1 -1
+-1 -1 2 -1
+-1 -1 -1 2
