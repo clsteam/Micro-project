@@ -1,4 +1,4 @@
-#### Algorithms in Bioinformatics
+## Algorithms in Bioinformatics
 **The programs should be flexible, i.e., it should be possible to:**
 
 * Align sequences over any alphabet. The alphabet can be {A, C, G, T} for DNA or 
