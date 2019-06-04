@@ -60,15 +60,26 @@ python3 global_align.py parameter.txt input.fa output.txt slope[Default:6] multi
 #### Result
 
 2019-06-04 23:01:33 DESKTOP-yao GlobalAlign[18032] INFO Loading parameters
+
 2019-06-04 23:01:33 DESKTOP-yao GlobalAlign[18032] INFO h: -2.0	s: 2
+
 2019-06-04 23:01:33 DESKTOP-yao GlobalAlign[18032] INFO Initialization matrix
+
 2019-06-04 23:01:33 DESKTOP-yao GlobalAlign[18032] INFO filling matrix of V,E,F
+
 2019-06-04 23:01:33 DESKTOP-yao GlobalAlign[18032] INFO Backtracking [Multi]
+
 2019-06-04 23:01:33 DESKTOP-yao GlobalAlign[18032] INFO Generate result file with detailed content
+
 2019-06-04 23:01:33 DESKTOP-yao GlobalAlign[18032] INFO score = -1.0
+
 2019-06-04 23:01:33 DESKTOP-yao GlobalAlign[18032] INFO S: HEAGAWGHE-E
+
 2019-06-04 23:01:33 DESKTOP-yao GlobalAlign[18032] INFO T: ---PAW-HEAE
+
 2019-06-04 23:01:33 DESKTOP-yao GlobalAlign[18032] INFO S: HEAGAWGHE-E
+
 2019-06-04 23:01:33 DESKTOP-yao GlobalAlign[18032] INFO T: P---AW-HEAE
+
 2019-06-04 23:01:33 DESKTOP-yao GlobalAlign[18032] INFO Congratulations! ^*_*^
 
