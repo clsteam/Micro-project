@@ -86,6 +86,10 @@ class Pos(object):
                 self.msp = [self.score[-1], self.l, self.r]
 
     def move(self):
+        """
+        左右同时移动！
+        :return:
+        """
         if self.r == len(self.t) - 1 or self.l == 0:
             self.move_left()
         else:

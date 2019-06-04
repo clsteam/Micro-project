@@ -1,11 +1,3 @@
-# import itertools
-#
-# seed = "1111000"
-# result = itertools.permutations(seed, len(seed))
-# x = set(result)
-# print(x)
-# print(len(x))
-
 import numpy as np
 S = "TGTATCTG"
 T = "GTTGCATC"
