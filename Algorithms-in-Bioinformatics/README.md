@@ -57,7 +57,7 @@ python3 global_align.py parameter.txt input.fa output.txt slope[Default:6] multi
 * When you run, you can set the logging setting `level='DEBUG'` to see the traceback path. 
 * Because the Affine gap model backtracking process has more than one optimal path, when you set `multi=1`, the program automatically returns multiple optimal paths (the optimal score is the same).
 
-#### Result
+#### Result1
 
 2019-06-04 23:01:33 DESKTOP-yao GlobalAlign[18032] INFO Loading parameters
 
@@ -82,6 +82,8 @@ python3 global_align.py parameter.txt input.fa output.txt slope[Default:6] multi
 2019-06-04 23:01:33 DESKTOP-yao GlobalAlign[18032] INFO T: P---AW-HEAE
 
 2019-06-04 23:01:33 DESKTOP-yao GlobalAlign[18032] INFO Congratulations! ^*_*^
+
+#### Result2
 
 2019-06-04 23:03:04 DESKTOP-yao GlobalAlign[18800] INFO Loading parameters
 
