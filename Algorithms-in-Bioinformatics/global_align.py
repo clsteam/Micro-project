@@ -237,8 +237,7 @@ class GlobalAlign(object):
                 self.array_F[i, j] = max(self.array_F[i-1, j] - self.slope, self.array_V[i-1, j] + self.param.gap_init_score - self.slope)
                 self.array_V[i, j] = max(self.array_V[i-1, j-1] + self._match_score(self.origin_seq.seq1[i-1], self.origin_seq.seq2[j-1]), self.array_E[i, j], self.array_F[i, j])
 
-        self.max_score = max(self.array_V[len_seq1, len_seq2], self.array_E[len_seq1, len_seq2], self.array_F[len_seq1, len_seq2])
-
+        self.max_score = self.array_V[len_seq1, len_seq2]
         self.chose_result(len_seq1, len_seq2)
 
         logger_1.info("Generate result file with detailed content")
@@ -255,20 +254,10 @@ class GlobalAlign(object):
     def chose_result(self, len_seq1, len_seq2):
         if self.multi:
             logger_1.info("Backtracking [Multi]")
-            if self.max_score == self.array_V[len_seq1, len_seq2]:
-                self.multi_backtracking(self.array_V, len_seq1, len_seq2, self.result_seq)
-            elif self.max_score == self.array_E[len_seq1, len_seq2]:
-                self.multi_backtracking(self.array_E, len_seq1, len_seq2, self.result_seq)
-            else:
-                self.multi_backtracking(self.array_F, len_seq1, len_seq2, self.result_seq)
+            self.multi_backtracking(self.array_V, len_seq1, len_seq2, self.result_seq)
         else:
             logger_1.info("Backtracking")
-            if self.max_score == self.array_V[len_seq1, len_seq2]:
-                self.backtracking(self.array_V, len_seq1, len_seq2)
-            elif self.max_score == self.array_E[len_seq1, len_seq2]:
-                self.backtracking(self.array_E, len_seq1, len_seq2)
-            else:
-                self.backtracking(self.array_F, len_seq1, len_seq2)
+            self.backtracking(self.array_V, len_seq1, len_seq2)
 
     def backtracking(self, array, i, j):
         """
@@ -391,7 +380,7 @@ if __name__ == '__main__':
         task1 = GlobalAlign(sys.argv[1], sys.argv[2], sys.argv[3], 10 if len(sys.argv) > 4 else float(sys.argv[4]))
         task1.run()
     elif len(sys.argv) == 1:
-        test = GlobalAlign("data/parameter2.txt", "data/input2.fa", "data/output.txt", slope=2, multi=1)
+        test = GlobalAlign("data/parameter.txt", "data/input.fa", "data/output.txt", slope=0.5, multi=1)
         test.run()
     else:
         print("Usage: python3 global_align.py parameter.txt input.fa output.txt slope[Default:10] multi[Default:0]")
