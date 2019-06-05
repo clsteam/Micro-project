@@ -92,13 +92,8 @@ python3 global_align.py parameter.txt input.fa output.txt slope[Default:6] multi
 2019-06-04 23:03:04 DESKTOP-yao GlobalAlign[18800] INFO Initialization matrix
 
 2019-06-04 23:03:04 DESKTOP-yao GlobalAlign[18800] INFO filling matrix of V,E,F
-
 2019-06-04 23:05:23 DESKTOP-yao GlobalAlign[18800] INFO Backtracking [Multi]
-
 2019-06-04 23:05:23 DESKTOP-yao GlobalAlign[18800] INFO Generate result file with detailed content
-
 2019-06-04 23:05:24 DESKTOP-yao GlobalAlign[18800] INFO score = None
-
 2019-06-04 23:05:24 DESKTOP-yao GlobalAlign[18800] INFO There are 192 optimal alignment paths
-
 2019-06-04 23:05:24 DESKTOP-yao GlobalAlign[18800] INFO Congratulations! ^*_*^
