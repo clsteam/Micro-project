@@ -122,5 +122,3 @@ ax.grid()
 
 plt.show()
 
-
-

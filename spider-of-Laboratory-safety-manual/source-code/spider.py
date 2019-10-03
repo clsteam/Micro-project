@@ -12,23 +12,28 @@
 from selenium import webdriver
 from time import sleep
 global browser
+import os
 # from selenium.webdriver.common.keys import Keys
 # from selenium.webdriver.common.action_chains import ActionChains
 
 
 # 无界面
-# opt = webdriver.ChromeOptions()
-# opt.set_headless()
-# browser = webdriver.Chrome(options=opt)
+opt = webdriver.ChromeOptions()
+opt.set_headless()
+browser = webdriver.Chrome(options=opt)
 
-browser = webdriver.Chrome()
+# 有界面
+# browser = webdriver.Chrome()
 
 
-account = "***"
-password = "***"
+account = "2014317200501"
+password = "187519"
 
 
 log_in_url = 'http://211.69.128.172/tltest'
+# 下载的文件位置
+if not os.path.exists('F:/practice/'):
+    os.makedirs('F:/practice/')
 download_doc = 'F:/practice/'
 browser.get(log_in_url)
 user_name = browser.find_element_by_id('txtuserid').send_keys(account)  # 账号
