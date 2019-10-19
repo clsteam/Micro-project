@@ -43,7 +43,7 @@ def main():
     browser = webdriver.Chrome(options=opt)  #环境变量设置好的情况下
     # browser = webdriver.Chrome('/public/home/yxu/tools/chromedriver/chromedriver')
 
-    #browser = webdriver.Chrome()
+    # browser = webdriver.Chrome()
 
     log_in_url = 'http://211.69.128.172/tltest'
     download_doc = 'F:/practice/'
