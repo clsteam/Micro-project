@@ -19,4 +19,4 @@ for page, txt in enumerate(os.listdir(download_doc)):
     qn = generate_question_database(txt)
     # txt = txt.encode('utf-8')
     # |page:1|华中农业大学实验室技术安全管理体制与运行机制|60|√|
-    print("|page:{0}|{1}|{2}|?|".format(page,txt.split(".")[0][1:], qn))
+    print("|page:{0}|{1}|{2}|?|".format(page+1,txt.split(".")[0][1:], qn))
