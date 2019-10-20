@@ -20,8 +20,8 @@ import os
 # from selenium.webdriver.common.action_chains import ActionChains
 
 
-account = "***"
-password = "***"
+account = "2014317200501"
+password = "187519"
 download_doc = 'F:/practice/'
 
 def generate_question_database(paper_file = None):
