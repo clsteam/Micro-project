@@ -20,35 +20,38 @@ import os
 # from selenium.webdriver.common.action_chains import ActionChains
 
 from setting import account, password
+from multiprocessing.dummy import Pool
 
 
 def main():
-    global browser
+    query_string = ["ENSG00000239776", "ENSG00000241781", "ENSG00000255322", "FLJ22447", "GPR75-ASB3", "ENSG00000239776", "LOC105373878", "LOC339862", "LIMS3-LOC440895"]
+
+    pool = Pool(processes=4)
+    for query in enumerate(query_string):
+        pool.apply_async(per_get_html, (query,))
+    pool.close()
+    pool.join()
+
+
+def per_get_html(query):
+    print(query)
     opt = webdriver.ChromeOptions()
-    # opt.set_headless()
+    opt.add_argument("--headless")
     browser = webdriver.Chrome(options=opt)  #环境变量设置好的情况下
     # browser = webdriver.Chrome('/public/home/yxu/tools/chromedriver/chromedriver')
 
     #browser = webdriver.Chrome()
 
-    log_in_url = 'http://211.69.128.172/tltest'
-
-def generate_question_database(paper_file):
-    question_database = []
-    QN = 0
-    with open(paper_file, "r") as doc:
-        for line in doc.readlines():
-            if line.startswith(">"):
-                question_database.append(line.strip("\n").split(".", 1)[1])
-                QN += 1
-    return question_database, QN
+    url_1 = 'https://www.genecards.org/Search/Keyword?queryString=' + query
+    browser.get(url_1)
+    print(browser.page_source)
 
 
 def main2():
     global browser
     opt = webdriver.ChromeOptions()
     # 无界面
-    opt.set_headless()
+    opt.add_argument("--headless")
     browser = webdriver.Chrome(options=opt)  #环境变量设置好的情况下
     # browser = webdriver.Chrome('/public/home/yxu/tools/chromedriver/chromedriver')
 

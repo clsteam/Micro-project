@@ -21,7 +21,7 @@ global browser
 
 # 无界面
 # opt = webdriver.ChromeOptions()
-# opt.set_headless()
+# opt.add_argument("--headless")
 # browser = webdriver.Chrome(options=opt)
 
 browser = webdriver.Chrome()

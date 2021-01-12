@@ -37,7 +37,7 @@ def main():
     global browser
     opt = webdriver.ChromeOptions()
     # 无界面
-    opt.set_headless()
+    opt.add_argument("--headless")
     browser = webdriver.Chrome(options=opt)  #环境变量设置好的情况下
     # browser = webdriver.Chrome('/public/home/yxu/tools/chromedriver/chromedriver')
 
