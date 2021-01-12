@@ -22,6 +22,17 @@ import os
 from setting import account, password
 
 
+def main():
+    global browser
+    opt = webdriver.ChromeOptions()
+    # opt.set_headless()
+    browser = webdriver.Chrome(options=opt)  #环境变量设置好的情况下
+    # browser = webdriver.Chrome('/public/home/yxu/tools/chromedriver/chromedriver')
+
+    #browser = webdriver.Chrome()
+
+    log_in_url = 'http://211.69.128.172/tltest'
+
 def generate_question_database(paper_file):
     question_database = []
     QN = 0
@@ -33,7 +44,7 @@ def generate_question_database(paper_file):
     return question_database, QN
 
 
-def main():
+def main2():
     global browser
     opt = webdriver.ChromeOptions()
     # 无界面
@@ -142,25 +153,4 @@ def main():
     return total_independent_question_num
 
 if __name__ == '__main__':
-    num = main()
-    while num != 0:
-        num = main()
-
-'''
-输出每套卷子的题目个数！
-def generate_question_database(paper_file):
-    QN = 0
-    with open(paper_file, "r") as doc:
-        for line in doc.readlines():
-            if line.startswith(">"):
-                QN += 1
-    return QN
-
-download_doc = 'F:/practice/'
-all_n = 0
-for file_name in os.listdir(download_doc):
-    number = generate_question_database(download_doc+"/"+file_name)
-    all_n += number
-    print(str(number)+"\t"+file_name)
-print all_n
-'''
+    main()
